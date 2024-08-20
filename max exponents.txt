@@ -1,0 +1,36 @@
+
+#include <stdio.h>
+int FindTwos(int n)
+{
+    int c=0;
+    while(n%2==0 && n!=0)
+    {
+        c++;
+        n = n/2;
+    }
+    return c;
+}
+int MaxExponents(int a, int b)
+{
+    int res, maxval=a,maxcount=0;
+    for(int i=a;i<=b;i++)
+    {
+        res = FindTwos(i); 
+        printf("%d ",res);
+        if (maxcount < res )
+        {
+            maxcount = res ;
+            maxval = i;
+        }
+    }
+    return maxval;
+}
+int main()
+{
+    int a,b;
+    scanf("%d%d",&a,&b);
+    
+    printf("\n%d ",MaxExponents(a,b));
+
+    return 0;
+}
