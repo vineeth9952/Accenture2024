@@ -1,0 +1,39 @@
+#include <stdio.h>
+char MaxOccurence(char *str)
+{
+    int arr[26] = {0};
+    int x,max=0,maxidx=-1;
+    for(int i=0;i<26;i++)
+    {
+        x = str[i]-'a';
+        arr[x] += 1;
+    }
+    for(int i=0;i<26;i++)
+    {
+        if(max<arr[i])
+        {
+            max = arr[i];
+            maxidx = i;
+        }
+    }
+    int count=0;
+    for(int i=0;i<26;i++)
+    {
+        if (max==arr[i])
+        {
+            count += 1;
+        }
+    }
+    if (count==1)
+        return (char)(maxidx+97);
+    else 
+        return (char)48;
+}
+int main()
+{
+    char str[100];
+    scanf("%s",str);
+    
+    printf("%c",MaxOccurence(str));
+    return 0;
+}
