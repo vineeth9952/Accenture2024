@@ -1,14 +1,15 @@
 #include <stdio.h>
 char MaxOccurence(char *str)
 {
-    int arr[26] = {0};
+    int arr[256] = {0};
     int x,max=0,maxidx=-1;
-    for(int i=0;i<26;i++)
+    for(int i=0;str[i]!='\0';i++)
     {
-        x = str[i]-'a';
+        x = str[i];
+        // printf("%d ",x);
         arr[x] += 1;
     }
-    for(int i=0;i<26;i++)
+    for(int i=0;i<256;i++)
     {
         if(max<arr[i])
         {
@@ -17,7 +18,7 @@ char MaxOccurence(char *str)
         }
     }
     int count=0;
-    for(int i=0;i<26;i++)
+    for(int i=0;i<256;i++)
     {
         if (max==arr[i])
         {
@@ -25,7 +26,7 @@ char MaxOccurence(char *str)
         }
     }
     if (count==1)
-        return (char)(maxidx+97);
+        return (char)(maxidx);
     else 
         return (char)48;
 }
